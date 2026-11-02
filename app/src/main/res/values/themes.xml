@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <!-- Main App Theme -->
     <style name="Theme.SatyamCreation" parent="android:Theme.Material.Light.NoActionBar" />
+
+    <!-- Splash Screen Starting Theme -->
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <!-- Background Color -->
+        <item name="windowSplashScreenBackground">@android:color/white</item>
+
+        <!-- Center Logo Icon -->
+        <item name="windowSplashScreenAnimatedIcon">@drawable/splash_center</item>
+
+        <!-- Bottom Screen Branding/Developer Credit (Android 12+) -->
+        <item name="android:windowSplashScreenBrandingImage">@drawable/developer_credit</item>
+
+        <!-- Main Theme After Splash -->
+        <item name="postSplashScreenTheme">@style/Theme.SatyamCreation</item>
+    </style>
 </resources>
