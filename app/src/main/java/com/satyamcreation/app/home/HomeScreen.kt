@@ -16,6 +16,8 @@ import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
@@ -45,6 +47,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
@@ -67,6 +70,7 @@ fun HomeScreen() {
         ) {
             SearchProduct()
             BannerSlider()
+            ProductCategory()
         }
     }
 }
@@ -218,5 +222,35 @@ fun Banner(
             modifier = Modifier.fillMaxSize(),
             contentScale = ContentScale.FillBounds
         )
+    }
+}
+
+@Composable
+fun ProductCategory() {
+    Column(
+        modifier = Modifier.padding(10.dp)
+    ) {
+        Text(
+            text = "Shop By Category"
+        )
+
+        Spacer(modifier = Modifier.height(10.dp))
+
+        LazyRow(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(space = 12.dp, alignment = Alignment.CenterHorizontally),
+        ) {
+            items(4) {
+                CategoryCard()
+            }
+        }
+    }
+}
+
+@Composable
+fun CategoryCard() {
+    Card(
+        modifier = Modifier.size(150.dp)
+    ) {
     }
 }
